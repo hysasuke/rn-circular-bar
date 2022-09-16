@@ -1,6 +1,6 @@
 import Animated, {
   Value,
-  Easing,
+  EasingNode,
   block,
   cond,
   not,
@@ -9,7 +9,7 @@ import Animated, {
   timing,
   stopClock,
   set
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
 interface TimingParams {
   clock: Animated.Clock;
@@ -26,37 +26,37 @@ interface TimingConfig {
 }
 
 const runTiming = (params: TimingParams) => {
-  const {clock, value, dest, duration} = params;
+  const { clock, value, dest, duration } = params;
   const state: Animated.TimingState = {
     finished: new Value(0),
     position: new Value(0),
     time: new Value(0),
-    frameTime: new Value(0),
+    frameTime: new Value(0)
   };
 
   const config: TimingConfig = {
     toValue: new Value(0),
     duration,
-    easing: Easing.inOut(Easing.ease),
+    easing: EasingNode.inOut(EasingNode.ease),
     useNativeDriver: false
   };
 
   return block([
     cond(not(clockRunning(clock)), [
       set(config.toValue, dest),
-      set(state.frameTime, 0),
+      set(state.frameTime, 0)
     ]),
     block([
-        cond(not(clockRunning(clock)), [
-          set(state.finished, 0),
-          set(state.time, 0),
-          set(state.position, value),
-          startClock(clock),
-        ]),
-        timing(clock, state, config),
-        cond(state.finished, stopClock(clock)),
-        state.position
-      ])
+      cond(not(clockRunning(clock)), [
+        set(state.finished, 0),
+        set(state.time, 0),
+        set(state.position, value),
+        startClock(clock)
+      ]),
+      timing(clock, state, config),
+      cond(state.finished, stopClock(clock)),
+      state.position
+    ])
   ]);
 };
 

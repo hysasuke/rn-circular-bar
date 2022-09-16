@@ -3,7 +3,7 @@
 
 # rn-circular-bar
 
-##### A light-weighted react-native module for creating a circular progress bar. This module incorporates animations and has peer dependency on [react-native-reanimated@1.13.3](https://docs.swmansion.com/react-native-reanimated/).
+##### A light-weighted react-native module for creating a circular progress bar. This module incorporates animations and has peer dependency on [react-native-reanimated@2.8.0](https://docs.swmansion.com/react-native-reanimated/).
 
 ## Install
 
@@ -22,24 +22,24 @@ $ yarn add rn-circular-bar
 ```
 
 ## Sample
-<img src="https://media.giphy.com/media/Ymxf8UmgmKhPZKSn8a/giphy.gif?cid=790b7611e94c0c2f1b1a4befb5e4ada1a8bce72c8bfa474a&rid=giphy.gif&ct=g" />
 
+<img src="https://media.giphy.com/media/Ymxf8UmgmKhPZKSn8a/giphy.gif?cid=790b7611e94c0c2f1b1a4befb5e4ada1a8bce72c8bfa474a&rid=giphy.gif&ct=g" />
 
 ## Usage
 
 **Basic Usage**
 
 ```javascript
-import React from 'react';
-import { StatusBar, View } from 'react-native';
-import ProgressBar from 'rn-circular-bar';
+import React from "react";
+import { StatusBar, View } from "react-native";
+import ProgressBar from "rn-circular-bar";
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: 'black'
+    backgroundColor: "black"
   }
 });
 
@@ -47,9 +47,9 @@ const App = () => {
   return (
     <View style={styles.wrapper}>
       <StatusBar hidden />
-      <ProgressBar 
+      <ProgressBar
         progress={35}
-        label={'Downloaded'}
+        label={"Downloaded"}
         showPercentSymbol={true}
         progressFontSize={30}
         labelFontSize={15}
@@ -59,28 +59,28 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
 ## Properties
 
-| Property name        | Type       | Default       | Description                           |
-| -----------------    | ---------- | ------------- | ------------------------------------- |
-| **radius**           | _number_   | 80            | The radius of the circle              |
-| **strokeWidth**      | _number_   | 10            | The stroke/thickness of the circle    |
-| **color**            | _string_   | cyan          | The color of the circle               |
-| **opacity**          | _number_   | 0.2           | The opacity of the slider             |
-| **duration**         | _number_   | 2000          | The duration in milliseconds          |
-| **progress**         | _number_   | -             | The value out of 100.                 |
-| **progresFontSize**  | _number_   | 40            | The font size of the progress         |
-| **label**            | _string_   | -             | The lable along with the progress     |
-| **labelFontSize**    | _number_   | 20            | The font size of the label            |
-| **showPercentSymbol**| _boolean_  | false         | To show the % symbol                  |
+| Property name         | Type      | Default | Description                        |
+| --------------------- | --------- | ------- | ---------------------------------- |
+| **radius**            | _number_  | 80      | The radius of the circle           |
+| **strokeWidth**       | _number_  | 10      | The stroke/thickness of the circle |
+| **color**             | _string_  | cyan    | The color of the circle            |
+| **opacity**           | _number_  | 0.2     | The opacity of the slider          |
+| **duration**          | _number_  | 2000    | The duration in milliseconds       |
+| **progress**          | _number_  | -       | The value out of 100.              |
+| **progresFontSize**   | _number_  | 40      | The font size of the progress      |
+| **label**             | _string_  | -       | The lable along with the progress  |
+| **labelFontSize**     | _number_  | 20      | The font size of the label         |
+| **showPercentSymbol** | _boolean_ | false   | To show the % symbol               |
 
 ## Note
-This dependency takes the *modulo of 100*. Let's assume the user has passed 135 as progress, the progress will be 35. 
 
-_Progress_: This is the value on a scale of 100. If the entity has a value of 50 out of 150, the value of progress should be 33. 
+This dependency takes the _modulo of 100_. Let's assume the user has passed 135 as progress, the progress will be 35.
+
+_Progress_: This is the value on a scale of 100. If the entity has a value of 50 out of 150, the value of progress should be 33.
 
 ## Author
 
